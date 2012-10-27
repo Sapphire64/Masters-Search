@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>Поиск для магистров</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 30px;
+        }
+    </style>
+    <link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/bootstrap/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/bootstrap/icole-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/bootstrap/icole-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/bootstrap/icole-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/bootstrap/icole-touch-icon-57-precomposed.png">
+</head>
+
+<body>
+<div class="container">
+    <h1>Генератор отчета о поиске</h1><br>
+
+    <div align="center">
+        %(header)s
+    </div>
+    <div class="row-fluid">
+
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0;">
+                <ul class="nav nav-list">
+                    <li class="nav-header">Переход</li>
+                    <li><a href="http://masters.donntu.edu.ua/">Портал магистров ДонНТУ</a></li>
+                    <li><a href="http://cs.donntu.edu.ua/">Сайт факультета КНТ</a></li>
+                    <li><a href="http://donntu.edu.ua/?lang=rus">Сайт ДонНТУ</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Страница автора приложения</a></li>
+                </ul>
+                <br>
+            </div> <!-- /well -->
+
+            <div align="center">
+                <br>
+                <img src="/images/logos/python-powered-w-200x80.png"></img>
+                <br><br>
+                <img src="/images/logos/TwistedLogo.png"></img>
+                <br><br>
+                <img src="/images/logos/mongodb.png"></img>
+
+            </div>
+
+        </div><!-- /.span -->
+        <div class="span9">
+
+            <form class="well" method="POST">
+                    <fieldset>
+                        <legend>Форма ввода поисковых выражений</legend><br>
+                        <p>Введите поисковые запросы для создания отчета. Одна строка - один поисковый запрос. Поддерживается ввод в кавычках.</p>
+
+                        <div class="control-group">
+                            <div class="control-group">
+                                <div class="controls">
+                                    <textarea class="input-myxlarge" name="queries" id="textarea" rows="20"
+                                            placeholder=""></textarea>
+                                    <div align="center">
+
+                                        <button type="submit" class="btn btn-primary btn-large">Сгенерировать отчет</button>
+                                        <a class="btn btn-large" data-toggle="modal" href="#add" >Добавить новый поиск</a>
+                                        <br><br><p><strong>Ограничение - %(max_requests)s запросов в сутки. У вас осталось %(number)s запросов.</strong></p>
+                                        <p>Среднее время генерации 25 запросов - 1 минута.</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+            </form>
+
+        </div>
+    </div>
+
+
+
+<div class="well">
+    <h6>© Власенко Антон, ДонНТУ, 2012</h6>
+    <h6>Условия использования: Пользоваться приложением разрешено только студентам, обучающимся в магистратуре ДонНТУ и изучающим курс "Интернет-технологии".</h6>
+</div>
+
+
+
+
+
+
+
+
+
+
+</div> <!-- /container -->
+
+<div id="add" class="modal hide fade">
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal" >&times;</a>
+        <h3>Форма добавления поисковой системы</h3>
+    </div>
+    <div class="modal-body" align="center">
+        <form method="POST">
+            <label>Название поисковой системы</label>
+            <input type="text" class="span4" placeholder="Example.com" name="s_name">
+            <label>Адрес запроса</label>
+            <input type="text" class="span4" placeholder="http://example.com/search?query=<text>" name="s_addr">
+            <label>Регулярное выражение (не обязательно)</label>
+            <input type="text" class="span4" placeholder="pages[:]\s(\d+)\s" name="s_regexp">
+            <br>
+            <button type="submit" class="btn">Добавить поиск</button>
+        </form>
+        <div class="modal-footer">
+            <a href="#" class="btn" data-dismiss="modal">Закрыть</a>
+        </div>
+    </div>
+
+
+
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="/bootstrap/js/jquery.js"></script>
+<script src="/bootstrap/js/bootstrap-transition.js"></script>
+<script src="/bootstrap/js/bootstrap-alert.js"></script>
+<script src="/bootstrap/js/bootstrap-modal.js"></script>
+<script src="/bootstrap/js/bootstrap-dropdown.js"></script>
+<script src="/bootstrap/js/bootstrap-scrollspy.js"></script>
+<script src="/bootstrap/js/bootstrap-tab.js"></script>
+<script src="/bootstrap/js/bootstrap-tooltip.js"></script>
+<script src="/bootstrap/js/bootstrap-popover.js"></script>
+<script src="/bootstrap/js/bootstrap-button.js"></script>
+<script src="/bootstrap/js/bootstrap-collapse.js"></script>
+<script src="/bootstrap/js/bootstrap-carousel.js"></script>
+<script src="/bootstrap/js/bootstrap-typeahead.js"></script>
+
+</body>
+</html>
